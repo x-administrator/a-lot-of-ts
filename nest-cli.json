@@ -38,15 +38,6 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "matchmaking": {
-      "type": "application",
-      "root": "apps/matchmaking",
-      "entryFile": "main",
-      "sourceRoot": "apps/matchmaking/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/matchmaking/tsconfig.app.json"
-      }
-    },
     "admin_api": {
       "type": "application",
       "root": "apps/admin_api",
