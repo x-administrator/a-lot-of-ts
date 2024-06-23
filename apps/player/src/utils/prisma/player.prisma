@@ -1,0 +1,57 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "./types"
+  previewFeatures = ["tracing"]
+}
+
+model User {
+  userId   String     @id @default(uuid()) @map("user_id")
+  nikName  String     @unique @map("nik_name")
+  usetAuth UsetAuth[]
+  backpack Backpack?
+
+  @@map("user")
+}
+
+enum UsetAuthType {
+  LOCAL
+  GOOGLE
+  APPLE
+}
+
+model UsetAuth {
+  userAuthId String       @id @default(uuid()) @map("user_auth_id")
+  userId     String       @map("user_id")
+  secretKey  String       @map("secret_key")
+  publickey  String       @map("public_key")
+  type       UsetAuthType
+  user       User         @relation(fields: [userId], references: [userId])
+
+  @@map("user_auth")
+}
+
+model Backpack {
+  backpackId String         @id @default(uuid()) @map("backpack_id")
+  userId     String         @unique @map("user_id")
+  name       String         @default("")
+  user       User           @relation(fields: [userId], references: [userId])
+  items      BackpackItem[]
+
+  @@map("backpack")
+}
+
+model BackpackItem {
+  backpackItemId String    @id @default(uuid()) @map("backpack_item_id")
+  backpackId     String    @map("backpack_id")
+  itemId         String    @map("item_id")
+  amount         Int       @default(0)
+  data           Json      @default("{}") @map("data")
+  backpack       Backpack? @relation(fields: [backpackId], references: [backpackId])
+
+  @@map("backback_item")
+}

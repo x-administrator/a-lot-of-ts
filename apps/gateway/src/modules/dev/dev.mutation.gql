@@ -1,0 +1,27 @@
+type Mutation {
+  Dev: DevMutation
+}
+
+input SetItemDto {
+  userId: String!
+  itemId: String!
+  amount: Float!
+}
+
+# -------------------------------------------------
+
+type DevMutation {
+  setBackpackItem(payload: SetItemDto!): String!
+  testErrorHandler: String
+  Transactions: ConvertTransactions_DEV
+}
+
+
+type ConvertTransactions_DEV {
+  pushFakeNotify(data: PushFakeNotifyInput): String
+  addItemsForce: String
+}
+
+input PushFakeNotifyInput {
+  errorChance: Int
+}

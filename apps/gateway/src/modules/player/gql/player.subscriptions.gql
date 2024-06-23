@@ -1,0 +1,26 @@
+scalar JSON
+
+type PlayerStateUpdatedResponse {
+  userId: String!
+  backpackItems: [BackpackFindItem]
+}
+
+type BackpackFindItem {
+  backpackId: String
+  item: String
+  amount: Float
+  data: JSON
+}
+
+type PlayerNotification {
+  type: String!
+}
+
+# ----------------------------------------------------------------------------------
+
+type Subscription {
+  stateUpdated: PlayerStateUpdatedResponse
+  playerNotification: PlayerNotification
+}
+
+

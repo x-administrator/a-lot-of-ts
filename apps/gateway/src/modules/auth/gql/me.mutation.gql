@@ -1,0 +1,21 @@
+type Mutation {
+  Me: MeMutation
+}
+
+input ConvertItem {
+  itemId: String!
+  amount: Int!
+}
+
+input ConvertItemsPayload {
+  logNotification: Boolean!
+  title: String!
+  items: [ConvertItem!]!
+}
+
+# -------------------------------------------------
+
+type MeMutation {
+  convertItems(payload: ConvertItemsPayload!): String!
+  readNotification(id: String!): Boolean!
+}

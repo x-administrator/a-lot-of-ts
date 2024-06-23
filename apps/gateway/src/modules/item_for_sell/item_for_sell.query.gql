@@ -1,0 +1,34 @@
+scalar JSON
+
+type ItemForSellInfo {
+  i18n: String!
+  type: String!
+  group: String!
+  price: [Price]
+  itemId: ID!
+  alternative_reward: [AlternativeReward]
+}
+
+type Price {
+  item: String
+  value: String
+}
+
+type AlternativeReward {
+  item: String
+  min: Int
+  max: Int
+}
+
+type Query {
+  ItemForSell: ItemForSellQuery
+}
+
+# -------------------------------------------------
+
+type ItemForSellQuery {
+  findOne(itemId: String!): ItemForSellInfo
+  findMany: [ItemForSellInfo]
+
+  currenciesFindMany: [ItemForSellInfo]
+}

@@ -1,0 +1,103 @@
+scalar String
+
+type Query {
+  Weapon: WeaponQuery
+}
+
+type IWeaponInfo {
+  ammo: AmmoData!
+  pusher: PusherData!
+  scaler: ScalerData!
+  version: Int!
+  hitPower: HitPowerData!
+  ricochet: RicochetData!
+  upgradeId: ID!
+  weaponeId: ID!
+  lifeStealer: LifeStealerData!
+  weaponeI18n: String!
+  baseSettings: BaseSettingsData!
+  chargePusher: ChargePusherData!
+  healthChanger: HealthChangerData!
+  chargeHealthChanger: ChargeHealthChangerData!
+}
+
+type AmmoData {
+  enabled: Boolean!
+  maxAmmo: Int!
+  ammoPerSec: Float!
+  reloadTime: Float!
+  isRegeneratingAmmo: Boolean!
+}
+
+type PusherData {
+  enabled: Boolean!
+  duration: Float!
+  pushValue: Float!
+}
+
+type ScalerData {
+  enabled: Boolean!
+  duration: Float!
+  defaultScale: Float!
+  scaleMultiply: Float!
+}
+
+type HitPowerData {
+  enabled: Boolean!
+  powerOnKill: Int!
+  powerOnTouch: Int!
+}
+
+type RicochetData {
+  enabled: Boolean!
+  maxTimes: Int!
+  isWallInclude: Boolean!
+  isEnemyInclude: Boolean!
+}
+
+type LifeStealerData {
+  enabled: Boolean!
+  multiply: Float!
+  healthAmount: Float!
+  isHealthChangerMultiply: Boolean!
+}
+
+type BaseSettingsData {
+  power: Int!
+  enabled: Boolean!
+  lifeDelay: Float!
+  shootDelay: Float!
+  projectileScale: Float!
+  projectileSpeed: Float!
+  isDestroyableOnWall: Boolean!
+  touchAmountToDelete: Int!
+}
+
+type ChargePusherData {
+  enabled: Boolean!
+  duration: Float!
+  multiply: Float!
+  pushValue: Float!
+  timeToActivate: Float!
+  isPusherMultiply: Boolean!
+}
+
+type HealthChangerData {
+  enabled: Boolean!
+  healthAmount: Float!
+}
+
+type ChargeHealthChangerData {
+  enabled: Boolean!
+  multiply: Float!
+  healthAmount: Float!
+  timeToActivate: Float!
+  isHealthChangerMultiply: Boolean!
+}
+
+# -------------------------------------------------
+
+type WeaponQuery {
+  findOne(weaponId: String!): String
+  findMany: [String]
+}

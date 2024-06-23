@@ -1,0 +1,96 @@
+type HeroInfo {
+  power: Power!
+  health: Health
+  heroId: ID!
+  hunter: Hunter
+  berserk: Berserk
+  movable: Movable
+  version: Int!
+  heroI18n: String!
+  heroGameID: Int!
+  invisibility: Invisibility!
+  summonerOnKill: SummonerOnKill!
+  tempWeaponCreator: TempWeaponCreator!
+  summonerOnWeaponUlt: SummonerOnWeaponUlt!
+  summonerOnCharacterUlt: SummonerOnCharacterUlt!
+}
+
+type Power {
+  value: Float!
+  enabled: Boolean!
+  showPower: Boolean!
+}
+
+type Health {
+  enabled: Boolean!
+  maxValue: Float
+}
+
+type Hunter {
+  enabled: Boolean!
+  powerGrowAmount: Float
+}
+
+type Berserk {
+  enabled: Boolean!
+  powerGrowAmount: Float
+}
+
+type Movable {
+  enabled: Boolean!
+  moveSpeed: Float
+}
+
+type Invisibility {
+  enabled: Boolean!
+  duration: Float!
+  canAttack: Boolean!
+  onWeaponUlt: Boolean!
+  removeOnHit: Boolean!
+  onCharacterUlt: Boolean!
+}
+
+type SummonerOnKill {
+  chance: Int!
+  enabled: Boolean!
+  summonNpc: Int!
+  summonType: Int!
+  SummonPoint: Int
+  summonInteractable: Int
+}
+
+type TempWeaponCreator {
+  enabled: Boolean!
+  lockPower: Boolean!
+  durability: Float!
+  weapon_game_id: Int!
+  corruptedPerShoot: Float
+  corruptedPerSecond: Float
+}
+
+type SummonerOnWeaponUlt {
+  chance: Int!
+  enabled: Boolean!
+  summonNpc: Int!
+  summonType: Int!
+  summonInteractable: Int
+}
+
+type SummonerOnCharacterUlt {
+  chance: Int!
+  enabled: Boolean!
+  summonNpc: Int!
+  summonType: Int!
+  summonInteractable: Int
+}
+
+type Query {
+  Hero: HeroQuery
+}
+
+# -------------------------------------------------
+
+type HeroQuery {
+  findOne(heroId: String!): String
+  findMany: [String!]
+}

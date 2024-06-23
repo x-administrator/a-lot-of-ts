@@ -1,0 +1,49 @@
+type DatasourceStateUpdatedResponse {
+  sourceName: String
+}
+
+# ----------------------------------------------------------------------------------
+
+type Subscription {
+  dataSourceUpdated: DatasourceStateUpdatedResponse
+}
+
+
+type Query {
+  Settings: SettingsQuery
+}
+
+type SettingsQuery {
+  Npc: NpcQuery
+}
+
+type NpcQuery {
+  findOne(npcId: String!): String
+  findMany: [String]
+}
+
+type NpcInfo {
+  npcId: ID!
+  health: Health!
+  movable: Movable!
+  npcI18n: String!
+  version: Int!
+  aggressable: Aggressable!
+  npc_game_id: Int!
+}
+
+type Health {
+  enabled: Boolean!
+  maxValue: Float!
+}
+
+type Movable {
+  enabled: Boolean! 
+  moveSpeed: Float!
+}
+
+type Aggressable {
+  enabled: Boolean!
+  attackDistance: Float!
+  aggressiveDistance: Float!
+}

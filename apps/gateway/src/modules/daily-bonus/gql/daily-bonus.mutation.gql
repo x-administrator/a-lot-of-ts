@@ -1,0 +1,9 @@
+type Mutation {
+  dailyBonus: DailyBonusMutation
+}
+
+# -------------------------------------------------
+
+type DailyBonusMutation {
+  claim: Boolean!
+}

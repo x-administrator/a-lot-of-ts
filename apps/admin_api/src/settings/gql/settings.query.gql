@@ -1,0 +1,41 @@
+scalar JSON
+
+type SettingsSyncStateType {
+  activeEntity: String
+  currentReaded: Int
+  targetReadAmount: Int
+  status: GoogleSyncStatus
+}
+
+enum GoogleSyncStatus {
+  READY
+  FETCH_DRIVE
+  FETCH_TABLE
+  SAVE_TABLE
+  ERROR_COMMON
+  DONE
+}
+
+type SettingsType {
+  externalId: ID
+  name: String
+  modifiedTime: String
+  markToRemove: Boolean
+}
+
+type SettingDataPreSave {
+  googleTableDataPreSaveId: ID
+  googleTableId: Int
+  data: JSON
+  title: String
+}
+
+type SettingsQuery {
+  getLastModify: [SettingsType]
+  getDataPreSaveByFile(externalId: String!): [SettingDataPreSave]
+  getSyncState: SettingsSyncStateType
+}
+
+type Query {
+  Settings: SettingsQuery
+}

@@ -1,0 +1,48 @@
+type Query {
+  Me: MeQuery
+}
+
+
+type MeQuery {
+  profile: PlayerModel!
+  rewardNotifications: [RewardNotificationPayload!]!
+}
+
+# ------------
+type BackpackPublicInfo {
+  backpackId: String! 
+  userId: String!    
+  name: String!   
+  items: [BackpackItem!]!  
+}
+
+type BackpackItem {
+  i18n: String 
+  itemId: String!    
+  amount: Int!
+  data: String  
+}
+
+type PlayerModel {
+  userId: String!
+  nikName: String!
+  backpack: BackpackPublicInfo
+  unReadNotificationCount: Int!
+}
+
+# ------------
+
+type RewardNotificationDataItem {
+  itemId: String!
+  amount: Int!
+  type: String!
+}
+
+type RewardNotificationPayload {
+  id: String!
+  transactionId: String!
+  title: String!
+  items: [RewardNotificationDataItem!]!
+}
+
+# -------------------------------------------------

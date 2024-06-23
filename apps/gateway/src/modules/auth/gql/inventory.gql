@@ -1,0 +1,27 @@
+
+type MeQuery {
+  Inventory: InventoryQuery
+}
+
+type MeMutation {
+  Inventory: InventoryMutation
+}
+
+type InventoryQuery {
+  items: [InventoryItem!]!
+}
+
+type InventoryItem {
+  itemId: String!
+  group: String!
+}
+
+type InventoryMutation {
+  setItems(data: [InventorySetItemInput!]!): String
+}
+
+input InventorySetItemInput {
+  itemId: String!
+  group: String!
+}
+

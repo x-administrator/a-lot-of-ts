@@ -1,0 +1,27 @@
+scalar JSON
+
+
+# -------------------------------------------------
+
+
+
+
+type WeaponSettings {
+  power: String
+  weaponId: String
+  shootDelay: String
+  Modifications: [WeaponModificationsSettings]
+}
+
+type WeaponModificationsSettings {
+  name: String
+}
+
+
+type WeaponQuery {
+  getList(versionBefore: Int): [WeaponSettings]
+}
+
+type SettingsQuery {
+  Weapon: WeaponQuery
+}

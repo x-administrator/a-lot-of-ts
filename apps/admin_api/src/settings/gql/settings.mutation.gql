@@ -1,0 +1,9 @@
+type Mutation {
+  Settings: SettingsMutation
+}
+
+type SettingsMutation {
+  updateFiles: Boolean
+  savePreSavedData(data: [ID!]!): Boolean
+  deleteSavedData(data: ID!): Boolean
+}

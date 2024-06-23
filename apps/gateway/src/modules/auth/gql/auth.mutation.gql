@@ -1,0 +1,24 @@
+type Mutation {
+  Auth: AuthMutation
+}
+
+input RegisterDto {
+  nikName: String!
+  password: String!
+}
+
+input LoginDto {
+  nikName: String!
+  password: String!
+}
+
+type TokenResponse {
+  accessToken: String!
+}
+
+# -------------------------------------------------
+
+type AuthMutation {
+  register(data: RegisterDto!): Boolean!
+  login(data: LoginDto!): TokenResponse!
+}

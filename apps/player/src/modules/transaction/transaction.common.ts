@@ -1,0 +1,5 @@
+export enum TransactionError {
+  NOT_ENOUGH = 'NOT_ENOUGH',
+  BACKPACK_NOT_FOUND = 'BACKPACK_NOT_FOUND',
+  ITEM_NOT_EXIST = 'ITEM_NOT_EXIST',
+}

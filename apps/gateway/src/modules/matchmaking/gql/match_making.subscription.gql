@@ -1,0 +1,14 @@
+type RoomReady {
+  connectionId: String!
+  gameServerHost: String!
+  gameServerPort: Int!
+  transactionId: String
+}
+
+# ---------------------------------------
+
+# ---------------------------------------
+
+type Subscription {
+  roomReady: RoomReady
+}

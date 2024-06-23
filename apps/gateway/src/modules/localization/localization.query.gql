@@ -1,0 +1,15 @@
+type Query {
+  Localization: LocalizationQuery
+}
+
+type ILocalizationQuery {
+  key: String!
+  lang: String!
+  value: String!
+}
+
+# -------------------------------------------------
+
+type LocalizationQuery {
+  findMany: [ILocalizationQuery]
+}

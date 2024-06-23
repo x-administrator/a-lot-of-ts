@@ -1,0 +1,16 @@
+**/.git
+
+.github
+.gitignore
+
+Dockerfile
+Jenkinsfile
+
+docker-compose.yml
+
+./mattermost
+dist/*
+node_modules/*
+.gitlab-ci.yml
+apps/*/src/utils/prisma/types/*
+.gitlab-ci.yml

@@ -1,0 +1,38 @@
+type LootboxBox {
+  boxId: ID!
+  name: String!
+  group: String!
+  price: [Price!]!
+  enabled: Boolean!
+  endDate: String!
+  startAt: String!
+  maxGroupBuy: Int!
+  superWin: LootboxBoxSuperWin
+}
+
+type Price {
+  item: String!
+  value: String!
+}
+
+
+type LootboxBoxSuperWin  {
+  target: Int
+  current: Int
+  reward: [Reward]
+}
+
+type Query {
+  Lootbox: LootboxQuery
+}
+
+# -------------------------------------------------
+
+type LootboxQuery {
+  boxFindMany: [LootboxBox]
+}
+
+
+type Reward {
+  item: String!
+}

@@ -1,0 +1,9 @@
+type Mutation {
+  Lootbox: LootboxMutation
+}
+
+# -------------------------------------------------
+
+type LootboxMutation {
+  openBox(boxId: String!): String!
+}

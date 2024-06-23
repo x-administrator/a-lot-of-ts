@@ -1,0 +1,61 @@
+scalar JSON
+
+# ------------------------------------
+enum ErrorType {
+  transaction,
+  matchmaking
+}
+
+type ErrorNotification {
+  type: ErrorType!
+  message: String!
+  details: String!
+  requestId: String
+  transactionId: String!
+}
+
+
+type MeNotification {
+  title: String!
+}
+
+type BackPackNotification {
+  transactionId: String!
+  title: String
+  i18n: String
+  items: [BackpackItem!]!   
+}
+
+type BroadcastNotification {
+  type: BroadcastNotificationType
+  resource: String
+}
+
+enum BroadcastNotificationType {
+  UPDATE_SETTINGS
+}
+
+type MatchMakingNotification {
+  transactionId: String
+  status: MatchMakingNotificationStatus!
+  capacity: Int!
+  playersAmount: Int!
+}
+
+enum MatchMakingNotificationStatus {
+  TEAM_WAIT
+  TEAM_UPDATE
+  CREATE_ROOM
+  TIMEOUT
+  READY_TO_CONNECT
+}
+
+# ---------------------------------------
+
+type Subscription {
+  # commandError: ErrorNotification
+  meNotification: MeNotification
+  errorNotification: ErrorNotification
+  backPackNotifications: BackPackNotification
+  matchMakingNotifications: MatchMakingNotification
+}

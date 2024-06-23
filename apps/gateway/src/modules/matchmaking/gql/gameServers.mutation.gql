@@ -1,0 +1,22 @@
+input StoreStatusesInput {
+  gameServerId: String!
+  serverName: String!
+  time: Float!
+  ip: String!
+}
+
+input InitGameInput {
+  gameModeId: Int!
+  mapId: Int!
+}
+
+# -----------------------------------------------------------------
+
+type GameServersMutation {
+  storeStates(data: [StoreStatusesInput!]): String
+  initGame(input: InitGameInput!): String
+}
+
+type Mutation {
+  GameServers: GameServersMutation
+}

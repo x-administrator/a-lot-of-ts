@@ -1,0 +1,8 @@
+type GameServer {
+  gameServerId: String!
+  callBackHost: String!
+}
+
+type Query {
+  getGameServers: [GameServer!]!
+}
